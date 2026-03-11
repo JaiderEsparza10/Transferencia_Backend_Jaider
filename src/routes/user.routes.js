@@ -8,9 +8,9 @@ router.get('/users', (req, res) => {
     });
 });
 
-router.post('/users', (req, res) => {
+router.post('/tasks', (req, res) => {
     res.json({
-        message: "Se creará un usuario"
+        message: "Se creará una tarea"
     });
 });
 
