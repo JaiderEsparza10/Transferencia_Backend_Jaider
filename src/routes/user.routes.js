@@ -1,17 +1,15 @@
-import { Router } from 'express';
+import { Router } from "express";
+import { createUser, getAllUsers, getUserById, updateUser, deleteUser, updateUserStatus, getUserTasks } from "../controllers/user.controller.js";
+import { seeTasksByUser, updateStatusUser } from "../models/user.module.js";
 
 const router = Router();
 
-router.get('/users', (req, res) => {
-    res.json({
-        message: "Se listarán los usuarios"
-    });
-});
-
-router.post('/tasks', (req, res) => {
-    res.json({
-        message: "Se creará una tarea"
-    });
-});
+router.post('/', createUser);
+router.get('/', getAllUsers);
+router.get('/:id', getUserById);
+router.put('/:id', updateUser);
+router.delete('/:id', deleteUser);
+router.patch('/:id/status', updateStatusUser);
+router.get('/:userId/tasks', seeTasksByUser);
 
 export default router;
